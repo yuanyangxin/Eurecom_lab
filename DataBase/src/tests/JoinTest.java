@@ -1675,7 +1675,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
       
       System.out.println ("\n"); 
       try {
-	sort_names.close();
+    	  sort_names.close();
       }
       catch (Exception e) {
 	status = FAIL;
@@ -1691,174 +1691,303 @@ private void Query1_CondExpr(CondExpr[] expr) {
     }
   
   
-  private void Query7() {
-  // TODO Auto-generated method stub
-	  System.out.print("**********************Query7 strating *********************\n");
-	    boolean status = OK;	
-	    
+  private void Query7() 
+  {
+	    System.out.print("**********************Query7 strating *********************\n");
+	    boolean status = OK;
+
 	    // Sailors, Boats, Reserves Queries.
-	    System.out.print ("Query:  "
-			      + "boat number 1.\n"
-			      + "and print out the date of reservation.\n\n"
-			      + "  SELECT S1.*"
-			      + "  FROM   Sailors S1,Sailors S2 \n"
-			      + "  WHERE  s1.rating  > s2.rating and s2.age=34.2 \n\n"
-			      + " order by s1.sid \n\n");  
+	    System.out.print 
+	      ("Query: Find the names of sailors who have reserved "
+	       + "a red boat\n"
+	       + "       and return them in alphabetical order.\n\n"
+	       + "  SELECT   S1.sname\n"
+	       + "  FROM     Sailors S1, Sailors S2\n"
+	       + "  WHERE    s1.rating  > s2.rating and s2.age=34.2 \n"
+	       + "  order by s1.sid \n");
 	    
-	    System.out.print ("\n(Tests FileScan, Projection, and Sort-Merge Join)\n");
-	 
+	    // Build Index first
+	    IndexType b_index = new IndexType (IndexType.B_Index);
+
 	    CondExpr[] outFilter = new CondExpr[3];
 	    outFilter[0] = new CondExpr();
 	    outFilter[1] = new CondExpr();
 	    outFilter[2] = new CondExpr();
 	 
+
 	    Query7_CondExpr(outFilter);
-	    
-	   
-	 
-	    Tuple t7 = new Tuple();
-	    
-	    AttrType [] Stypes = new AttrType[4];
-	    Stypes[0] = new AttrType (AttrType.attrInteger);
-	    Stypes[1] = new AttrType (AttrType.attrString);
-	    Stypes[2] = new AttrType (AttrType.attrInteger);
-	    Stypes[3] = new AttrType (AttrType.attrReal);
 
-	    //SOS
-	    short [] Ssizes = new short[1];
-	    Ssizes[0] = 30; //first elt. is 30
-	    
-	    FldSpec [] Sprojection = new FldSpec[4];
-	    Sprojection[0] = new FldSpec(new RelSpec(RelSpec.outer), 1);
-	    Sprojection[1] = new FldSpec(new RelSpec(RelSpec.outer), 2);
-	    Sprojection[2] = new FldSpec(new RelSpec(RelSpec.outer), 3);
-	    Sprojection[3] = new FldSpec(new RelSpec(RelSpec.outer), 4);
+	    Tuple t = new Tuple();
+	    t = null;
 
-	    CondExpr [] selects = new CondExpr [1];
-	    selects = null;
-	    
-	 
-	    FileScan am = null;
-	    try {
-	      am  = new FileScan("sailors.in", Stypes, Ssizes, 
-					  (short)4, (short)4,
-					  Sprojection, null);
-	    }
-	    catch (Exception e) {
-	      status = FAIL;
-	      System.err.println (""+e);
-	    }
+	    AttrType [] Stypes = {
+	      new AttrType(AttrType.attrInteger), 
+	      new AttrType(AttrType.attrString), 
+	      new AttrType(AttrType.attrInteger), 
+	      new AttrType(AttrType.attrReal)
+	    };
 
-	    if (status != OK) {
-	      //bail out
-	      System.err.println ("*** Error setting up scan for sailors");
-	      Runtime.getRuntime().exit(1);
-	    }
+	    AttrType [] Stypes2 = {
+	      new AttrType(AttrType.attrInteger), 
+	      new AttrType(AttrType.attrString), 
+	    };
+
+	    short []   Ssizes = new short[1];
+	    Ssizes[0] = 30;
 	    
-//	    AttrType [] Rtypes = new AttrType[3];
-//	    Rtypes[0] = new AttrType (AttrType.attrInteger);
-//	    Rtypes[1] = new AttrType (AttrType.
-//	    attrInteger);
-//	    Rtypes[2] = new AttrType (AttrType.attrString);
+//	    AttrType [] Rtypes = {
+//	      new AttrType(AttrType.attrInteger), 
+//	      new AttrType(AttrType.attrInteger), 
+//	      new AttrType(AttrType.attrString), 
+//	    };
 //
-//	    short [] Rsizes = new short[1];
-//	    Rsizes[0] = 15; 
-//	    FldSpec [] Rprojection = new FldSpec[3];
-//	    Rprojection[0] = new FldSpec(new RelSpec(RelSpec.outer), 1);
-//	    Rprojection[1] = new FldSpec(new RelSpec(RelSpec.outer), 2);
-//	    Rprojection[2] = new FldSpec(new RelSpec(RelSpec.outer), 3);
-
-	    FileScan am2 = null;
-	    try {
-	      am2 = new FileScan("sailors.in", Stypes, Ssizes, 
-				  (short)4, (short)4,
-				  Sprojection, null);
-	    }
-	    catch (Exception e) {
-	      status = FAIL;
-	      System.err.println (""+e);
-	    }
-
-	    if (status != OK) {
-	      //bail out
-	      System.err.println ("*** Error setting up scan for reserves");
-	      Runtime.getRuntime().exit(1);
-	    }
-	   
+//	    short  []  Rsizes = new short[1] ;
+//	    Rsizes[0] = 15;
+//	    AttrType [] Btypes = {
+//	      new AttrType(AttrType.attrInteger), 
+//	      new AttrType(AttrType.attrString), 
+//	      new AttrType(AttrType.attrString), 
+//	    };
+//
+//	    short  []  Bsizes = new short[2];
+//	    Bsizes[0] =30;
+//	    Bsizes[1] =20;
 	    
-	    FldSpec [] proj_list = new FldSpec[2];
-	    proj_list[0] = new FldSpec(new RelSpec(RelSpec.outer), 2);
-	    proj_list[1] = new FldSpec(new RelSpec(RelSpec.innerRel), 3);
+//      the following should be checked 
+	    AttrType [] Jtypes = {
+	      new AttrType(AttrType.attrString), 
+	      new AttrType(AttrType.attrInteger), 
+	    };
 
-	    AttrType [] jtype = new AttrType[2];
-	    jtype[0] = new AttrType (AttrType.attrString);
-	    jtype[1] = new AttrType (AttrType.attrString); 
+	    short  []  Jsizes = new short[1];
+	    Jsizes[0] = 30;
+	    AttrType [] JJtype = {
+	      new AttrType(AttrType.attrString), 
+	    };
+
+	    short [] JJsize = new short[1];
+	    JJsize[0] = 30;
+	    FldSpec []  proj1 = { 
+	       new FldSpec(new RelSpec(RelSpec.outer), 2),
+	       new FldSpec(new RelSpec(RelSpec.innerRel), 2)
+	    }; // S.sname, R.bid
+
+//	    FldSpec [] proj2  = {
+//	       new FldSpec(new RelSpec(RelSpec.outer), 1)
+//	    };
 	 
-	    TupleOrder ascending = new TupleOrder(TupleOrder.Ascending);
-	    SortMerge sm = null;
-	    try {
-	      sm = new SortMerge(Stypes, 4, Ssizes,
-	    		  Stypes, 4, Ssizes,
-				 1, 4, 
-				 1, 4, 
-				 10,
-				 am, am2, 
-				 false, false, ascending,
-				 outFilter, proj_list, 2);
+	    FldSpec [] Sprojection = {
+	       new FldSpec(new RelSpec(RelSpec.outer), 1),
+	       new FldSpec(new RelSpec(RelSpec.outer), 2),
+	       // new FldSpec(new RelSpec(RelSpec.outer), 3),
+	       // new FldSpec(new RelSpec(RelSpec.outer), 4)
+	    };
+	 
+	    CondExpr [] selects = new CondExpr[1];
+	    selects[0] = null;
+	    
+	    
+	    
+	    iterator.Iterator am = null;
+	   
+
+	    //_______________________________________________________________
+	    //*******************create an scan on the heapfile**************
+	    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	    // create a tuple of appropriate size
+	    Tuple tt = new Tuple();
+	    try 
+	    {
+	      tt.setHdr((short) 4, Stypes, Ssizes);
 	    }
 	    catch (Exception e) {
-	      System.err.println("*** join error in SortMerge constructor ***"); 
 	      status = FAIL;
-	      System.err.println (""+e);
 	      e.printStackTrace();
 	    }
 
-	    if (status != OK) {
-	      //bail out
-	      System.err.println ("*** Error constructing SortMerge");
+	    int sizett = tt.size();
+	    tt = new Tuple(sizett);
+	    try {
+	      tt.setHdr((short) 4, Stypes, Ssizes);
+	    }
+	    catch (Exception e) {
+	      status = FAIL;
+	      e.printStackTrace();
+	    }
+	    Heapfile        f = null;
+	    try {
+	      f = new Heapfile("sailors.in");
+	    }
+	    catch (Exception e) {
+	      status = FAIL;
+	      e.printStackTrace();
+	    }
+	    
+	    Scan scan = null;
+	    
+	    try {
+	      scan = new Scan(f);
+	    }
+	    catch (Exception e) {
+	      status = FAIL;
+	      e.printStackTrace();
 	      Runtime.getRuntime().exit(1);
 	    }
 
-	   
-	 
-	    QueryCheck qcheck7 = new QueryCheck(7);
-	 
-	   
-	    t7 = null;
-	 
+	    // create the index file
+	    BTreeFile btf = null;
 	    try {
-	      while ((t7 = sm.get_next()) != null) {
-	        t7.print(jtype);
+	      btf = new BTreeFile("BTreeIndex", AttrType.attrInteger, 4, 1); 
+	    }
+	    catch (Exception e) {
+	      status = FAIL;
+	      e.printStackTrace();
+	      Runtime.getRuntime().exit(1);
+	    }
+	    
+	    System.out.println("btf in doc:" + btf);
+	    
+//	    RID rid = new RID();
+//	    int key =0;
+//	    Tuple temp = null;
+//	    
+//	    try {
+//	      temp = scan.getNext(rid);
+//	    }
+//	    catch (Exception e) {
+//	      status = FAIL;
+//	      e.printStackTrace();
+//	    }
+//	    while ( temp != null) {
+//	      tt.tupleCopy(temp);
+//	      
+//	      try {
+//		key = tt.getIntFld(1);
+//	      }
+//	      catch (Exception e) {
+//		status = FAIL;
+//		e.printStackTrace();
+//	      }
+//	      
+//	      try {
+//		btf.insert(new IntegerKey(key), rid); 
+//	      }
+//	      catch (Exception e) {
+//		status = FAIL;
+//		e.printStackTrace();
+//	      }
+//
+//	      try {
+//		temp = scan.getNext(rid);
+//	      }
+//	      catch (Exception e) {
+//		status = FAIL;
+//		e.printStackTrace();
+//	      }
+//	    }
+	    
+	    // close the file scan
+	    scan.closescan();
+	    
+	    
+	    //_______________________________________________________________
+	    //*******************close an scan on the heapfile**************
+	    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	        qcheck7.Check(t7);
+	    System.out.print ("After Building btree index on sailors.rating .\n\n");
+	    try {
+	      am = new IndexScan ( b_index, "sailors.in",
+				   "BTreeIndex", Stypes, Ssizes, 4, 2,// why 2 here? Need to change?
+				   Sprojection, null, 1, false);
+	    }
+	    catch (Exception e) {
+	      System.err.println ("*** Error creating scan for Index scan");
+	      System.err.println (""+e);
+	      Runtime.getRuntime().exit(1);
+	    }
+	    System.out.println("am in doc:" + am);
+	   
+	    
+	    NestedLoopsJoins nlj = null;
+	    try {
+	      nlj = new NestedLoopsJoins (Stypes2, 2, Ssizes,
+					  Stypes, 4, Ssizes,
+					  10,
+					  am, "SecondSailor.in",
+					  outFilter, null, proj1, 1);
+	    }
+	    catch (Exception e) {
+	      System.err.println ("*** Error preparing for nested_loop_join");
+	      System.err.println (""+e);
+	      e.printStackTrace();
+	      Runtime.getRuntime().exit(1);
+	    }
+	    System.out.println("nlj in doc:" + nlj);
+
+//	     NestedLoopsJoins nlj2 = null ; 
+//	    try {
+//	      nlj2 = new NestedLoopsJoins (Jtypes, 2, Jsizes,
+//					   Btypes, 3, Bsizes,
+//					   10,
+//					   nlj, "boats.in",
+//					   outFilter2, null, proj2, 1);
+//	    }
+//	    catch (Exception e) {
+//	      System.err.println ("*** Error preparing for nested_loop_join");
+//	      System.err.println (""+e);
+//	      Runtime.getRuntime().exit(1);
+//	    }
+	    
+	    TupleOrder ascending = new TupleOrder(TupleOrder.Ascending);
+	    Sort sort_names = null;
+	    try {
+	      sort_names = new Sort (JJtype,(short)1, JJsize,
+				     (iterator.Iterator) nlj, 1, ascending, JJsize[0], 10);
+	    }
+	    catch (Exception e) {
+	      System.err.println ("*** Error preparing for nested_loop_join");
+	      System.err.println (""+e);
+	      Runtime.getRuntime().exit(1);
+	    }
+	    
+	    
+	    QueryCheck qcheck7 = new QueryCheck(7);
+	    
+	   
+	    t = null;
+	    try {
+	      System.out.println("vlaues in sort_names: "+sort_names.get_next());
+	      while ((t = sort_names.get_next()) != null) {
+	        t.print(JJtype);
+	        System.out.println("The values in t is:" + t);
+	        qcheck7.Check(t);
 	      }
 	    }
 	    catch (Exception e) {
 	      System.err.println (""+e);
-	       e.printStackTrace();
-	       status = FAIL;
-	    }
-	    if (status != OK) {
-	      //bail out
-	      System.err.println ("*** Error in get next tuple ");
+	      e.printStackTrace();
 	      Runtime.getRuntime().exit(1);
 	    }
-	    
-	    qcheck7.report(1);
+
+	    qcheck7.report(7);
+
+	    System.out.println ("\n"); 
 	    try {
-	      sm.close();
+	      sort_names.close();
 	    }
 	    catch (Exception e) {
 	      status = FAIL;
 	      e.printStackTrace();
 	    }
-	    System.out.println ("\n"); 
+	    
 	    if (status != OK) {
 	      //bail out
-	      System.err.println ("*** Error in closing ");
+	   
 	      Runtime.getRuntime().exit(1);
-	    }  
-}
+	      }
+	  
+  
+  }
   
   
   private void Disclaimer() {

@@ -30,7 +30,7 @@ class Order {
 */
 
 class Group {
-  static int Max_answer = 15;
+  static int Max_answer = 30;
   int len;
   int count;
   Order order;
@@ -335,7 +335,7 @@ public class QueryCheck {
 
     case 6:
         types[0] = new AttrType(AttrType.attrString);
-        sizes[0] = (short)25;
+        sizes[0] = (short)40;
         columnum = (short)1;
         groupnum = 1;
         tuplenum = 4;
@@ -365,12 +365,12 @@ public class QueryCheck {
         mygroup[0].len = 23;              // each group length.
         mygroup[0].count = 0;           // count for correct answers
         mygroup[0].order = new Order(Order.SORT); // the tuple in group is sorted or not
+        
         for(int i=0; i<mygroup[0].len;i++)  {// set tuple value. 
   	try {
-  			System.out.println("enter into try now!!!!");
-            mygroup[0].mytuple[i] = new Tuple();
+            mygroup[0].mytuple[i] = new Tuple();  
             mygroup[0].mytuple[i].setHdr(columnum, types, sizes); 
-            mygroup[0].mytuple[i].setStrFld(1,((S1)Q7result.elementAt(i)).sname);
+            mygroup[0].mytuple[i].setStrFld(1,((S2)Q7result.elementAt(i)).sname);
   	}
   	catch (Exception e) {
   	  System.err.println ("**** Error setting up the tuples");
@@ -688,6 +688,7 @@ public class QueryCheck {
   
   // report the status of the query
   public void report(int querynum) {
+	System.out.println("The Total Number is:"+total+"  The tuplenum is:"+tuplenum);
     if( total<tuplenum )
       System.out.print ("\n*****Error occured in QueryCheck.\n\n");
     
