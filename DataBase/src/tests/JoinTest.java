@@ -1897,7 +1897,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
 	    System.out.print ("After Building btree index on sailors.rating .\n\n");
 	    try {
 	      am = new IndexScan ( b_index, "sailors.in",
-				   "BTreeIndex", Stypes, Ssizes, 4, 2,// why 2 here? Need to change?
+				   "BTreeIndex", Stypes, Ssizes, 4, 2, // why 2 here? Need to change?
 				   Sprojection, null, 1, false);
 	    }
 	    catch (Exception e) {
