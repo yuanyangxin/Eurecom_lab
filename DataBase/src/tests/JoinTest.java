@@ -1,3 +1,8 @@
+/**
+ *  Task 1a doesn't finish. It maybe go wrong from line 1913 
+ *  
+ **/
+
 package tests;
 //originally from : joins.C
 
@@ -371,7 +376,7 @@ class JoinsDriver implements GlobalConst {
     
   }
   
-  public boolean runTests() {
+  public boolean runTests() throws JoinsException, IndexException, InvalidTupleSizeException, InvalidTypeException, PageNotReadException, TupleUtilsException, PredEvalException, SortException, LowMemException, UnknowAttrType, UnknownKeyTypeException, IOException, Exception {
     
     Disclaimer();
     Query1();
@@ -1691,7 +1696,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
     }
   
   
-  private void Query7() 
+  private void Query7() throws JoinsException, IndexException, InvalidTupleSizeException, InvalidTypeException, PageNotReadException, TupleUtilsException, PredEvalException, SortException, LowMemException, UnknowAttrType, UnknownKeyTypeException, IOException, Exception 
   {
 	    System.out.print("**********************Query7 strating *********************\n");
 	    boolean status = OK;
@@ -1785,8 +1790,6 @@ private void Query1_CondExpr(CondExpr[] expr) {
 	 
 	    CondExpr [] selects = new CondExpr[1];
 	    selects[0] = null;
-	    
-	    
 	    
 	    iterator.Iterator am = null;
 	   
@@ -1905,12 +1908,15 @@ private void Query1_CondExpr(CondExpr[] expr) {
 	      System.err.println (""+e);
 	      Runtime.getRuntime().exit(1);
 	    }
-	    System.out.println("am in doc:" + am);
+	    System.out.println("The data in am is :" + am.get_next());
 	   
 	    
+	    // I think it goes wrong from here!!!!!!!!
 	    NestedLoopsJoins nlj = null;
 	    try {
-	      nlj = new NestedLoopsJoins (Stypes2, 2, Ssizes,
+	      nlj = new NestedLoopsJoins (
+	    		     Stypes2, 2, Ssizes, // Why Stypes2 here? Need to change anything? 
+//	    		      Stypes, 4, Ssizes,
 					  Stypes, 4, Ssizes,
 					  10,
 					  am, "SecondSailor.in",
@@ -1922,7 +1928,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
 	      e.printStackTrace();
 	      Runtime.getRuntime().exit(1);
 	    }
-	    System.out.println("nlj in doc:" + nlj);
+	    System.out.println("The content in the nlj is: " + nlj.get_next());
 
 //	     NestedLoopsJoins nlj2 = null ; 
 //	    try {
@@ -1991,7 +1997,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
   
   
   private void Disclaimer() {
-    System.out.print ("\n\nAny resemblance of persons in this database to"
+    System.out.print ("\n\n Any resemblance of persons in this database to"
          + " people living or dead\nis purely coincidental. The contents of "
          + "this database do not reflect\nthe views of the University,"
          + " the Computer  Sciences Department or the\n"
@@ -2006,7 +2012,7 @@ private void Query1_CondExpr(CondExpr[] expr) {
 
 public class JoinTest
 {
-  public static void main(String argv[])
+  public static void main(String argv[]) throws JoinsException, IndexException, InvalidTupleSizeException, InvalidTypeException, PageNotReadException, TupleUtilsException, PredEvalException, SortException, LowMemException, UnknowAttrType, UnknownKeyTypeException, IOException, Exception
   {
     boolean sortstatus;
     //SystemDefs global = new SystemDefs("bingjiedb", 100, 70, null);
