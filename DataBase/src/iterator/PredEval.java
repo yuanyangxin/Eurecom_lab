@@ -78,7 +78,7 @@ public class PredEval
 		  break;
 		case AttrType.attrSymbol:
 		  fld1 = temp_ptr.operand1.symbol.offset;
-		  if (temp_ptr.operand1.symbol.relation.key == RelSpec.outer)
+		  if (temp_ptr.operand1.symbol.relation.key == RelSpec.outer) //0
 		    {
 		      tuple1 = t1;
 		      comparison_type.attrType = in1[fld1-1].attrType;

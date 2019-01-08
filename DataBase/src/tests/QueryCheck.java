@@ -30,7 +30,7 @@ class Order {
 */
 
 class Group {
-  static int Max_answer = 30;
+  static int Max_answer = 150;
   int len;
   int count;
   Order order;
@@ -120,6 +120,7 @@ public class QueryCheck {
   Vector Q5result = new Vector();
   Vector Q6result = new Vector();
   Vector Q7result = new Vector();
+  Vector Q8result = new Vector();
 
 
 
@@ -205,6 +206,140 @@ public class QueryCheck {
    
    
    
+    
+    Q8result.addElement(new S2("Bob Holloway"));
+    Q8result.addElement(new S2("Bob Holloway"));
+    Q8result.addElement(new S2("Yannis Ioannidis"));
+    Q8result.addElement(new S2("Yannis Ioannidis"));
+    Q8result.addElement(new S2("Yannis Ioannidis"));
+    Q8result.addElement(new S2("Yannis Ioannidis"));
+    Q8result.addElement(new S2("Yannis Ioannidis"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Deborah Joseph"));
+    Q8result.addElement(new S2("Landwebber"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("James Larus"));
+    Q8result.addElement(new S2("Barton Miller"));
+    Q8result.addElement(new S2("Barton Miller"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Raghu Ramakrishnan"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Guri Sohi"));
+    Q8result.addElement(new S2("Prasoon Tiwari"));
+    Q8result.addElement(new S2("Prasoon Tiwari"));
+    Q8result.addElement(new S2("Prasoon Tiwari"));
+    Q8result.addElement(new S2("Prasoon Tiwari"));
+    Q8result.addElement(new S2("Prasoon Tiwari"));
+    Q8result.addElement(new S2("Anne Condon"));
+    Q8result.addElement(new S2("Anne Condon"));
+    Q8result.addElement(new S2("Charles Fischer"));
+    Q8result.addElement(new S2("Charles Fischer"));
+    Q8result.addElement(new S2("James Goodman"));
+    Q8result.addElement(new S2("Mark Hill"));
+    Q8result.addElement(new S2("Mark Hill"));
+    Q8result.addElement(new S2("Mark Hill"));
+    Q8result.addElement(new S2("Mary Vernon"));
+    Q8result.addElement(new S2("Mary Vernon"));
+    Q8result.addElement(new S2("Mary Vernon"));
+    Q8result.addElement(new S2("Mary Vernon"));
+    Q8result.addElement(new S2("David Wood"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Mark Smucker"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Martin Reames"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("Mike Carey"));
+    Q8result.addElement(new S2("David Dewitt"));
+    Q8result.addElement(new S2("David Dewitt"));
+    Q8result.addElement(new S2("David Dewitt"));
+    Q8result.addElement(new S2("David Dewitt"));
+    Q8result.addElement(new S2("Tom Reps"));
+    Q8result.addElement(new S2("Tom Reps"));
+    Q8result.addElement(new S2("Tom Reps"));
+    Q8result.addElement(new S2("Tom Reps"));
+    Q8result.addElement(new S2("Tom Reps"));
+    Q8result.addElement(new S2("Jeff Naughton"));
+    Q8result.addElement(new S2("Jeff Naughton"));
+    Q8result.addElement(new S2("Jeff Naughton"));
+    Q8result.addElement(new S2("Miron Livny"));
+    Q8result.addElement(new S2("Miron Livny"));
+    Q8result.addElement(new S2("Miron Livny"));
+    Q8result.addElement(new S2("Miron Livny"));
+    Q8result.addElement(new S2("Miron Livny"));
+    Q8result.addElement(new S2("Marv Solomon"));
+    Q8result.addElement(new S2("Marv Solomon"));
+    Q8result.addElement(new S2("Marv Solomon"));
+    Q8result.addElement(new S2("Marv Solomon"));
+    
+    
 
     //more initializing
     for (int i = 0; i < Max_group_num; i++) {
@@ -361,16 +496,39 @@ public class QueryCheck {
         columnum = (short)1;                    // colum number.
         groupnum = 1;                    // group number.
         tuplenum = 23;                     // the total number of answer.
-        grouporder = new Order(Order.SORT);
+        grouporder = new Order(Order.UNSORT);
         mygroup[0].len = 23;              // each group length.
         mygroup[0].count = 0;           // count for correct answers
-        mygroup[0].order = new Order(Order.SORT); // the tuple in group is sorted or not
+        mygroup[0].order = new Order(Order.UNSORT); // the tuple in group is sorted or not
         
         for(int i=0; i<mygroup[0].len;i++)  {// set tuple value. 
   	try {
             mygroup[0].mytuple[i] = new Tuple();  
             mygroup[0].mytuple[i].setHdr(columnum, types, sizes); 
             mygroup[0].mytuple[i].setStrFld(1,((S2)Q7result.elementAt(i)).sname);
+  	}
+  	catch (Exception e) {
+  	  System.err.println ("**** Error setting up the tuples");
+  	}
+        }
+        break;
+        
+    case 8:
+        types[0] = new AttrType(AttrType.attrString);    // atrrtype array.
+        sizes[0] = (short)25 ;                  // string length. 
+        columnum = (short)1;                    // colum number.
+        groupnum = 1;                    // group number.
+        tuplenum = 131;                     // the total number of answer.
+        grouporder = new Order(Order.SORT);
+        mygroup[0].len = 131;              // each group length.
+        mygroup[0].count = 0;           // count for correct answers
+        mygroup[0].order = new Order(Order.UNSORT); // the tuple in group is sorted or not
+        
+        for(int i=0; i<mygroup[0].len;i++)  {// set tuple value. 
+  	try {
+            mygroup[0].mytuple[i] = new Tuple();  
+            mygroup[0].mytuple[i].setHdr(columnum, types, sizes); 
+            mygroup[0].mytuple[i].setStrFld(1,((S2)Q8result.elementAt(i)).sname);
   	}
   	catch (Exception e) {
   	  System.err.println ("**** Error setting up the tuples");

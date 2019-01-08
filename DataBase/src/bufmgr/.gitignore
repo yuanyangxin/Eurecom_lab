@@ -20,3 +20,6 @@
 /STATE.class
 /victim_data.class
 /FIFO.class
+/HistInfo.class
+/LIFO.class
+/LRUK.class

@@ -1191,13 +1191,19 @@ public class SM_JoinTest
 
     JoinsDriver jjoin = new JoinsDriver();
 
-    sortstatus = jjoin.runTests();
-    if (sortstatus != true) {
-      System.out.println("Error ocurred during join tests");
-    }
-    else {
-      System.out.println("join tests completed successfully");
-    }
+    try {
+		sortstatus = jjoin.runTests();
+		if (sortstatus != true) {
+		      System.out.println("Error ocurred during join tests");
+		    }
+		    else {
+		      System.out.println("join tests completed successfully");
+		    }
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    
   }
 }
 
